@@ -12,8 +12,6 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
     
     lazy var imageModel:ImageModel = {
@@ -23,7 +21,6 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 2
     }
 
@@ -42,7 +39,7 @@ class TableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageNameCell", for: indexPath)
             
             // Configure the cell...
-            if let name = self.imageModel.imageNames[indexPath.row] as? String {
+            if let name = self.imageModel.getImageName(for: indexPath.row) as? String {
                 cell.textLabel!.text = name
             }
             
