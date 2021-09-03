@@ -17,12 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(UIImage*)getImageWithName:(NSString*)name;
 -(UIImage*)getImageWithIndex:(NSInteger)index;
--(NSInteger*)numberOfImages;
+-(NSInteger)numberOfImages;
 -(NSString*)getImageNameForIndex:(NSInteger)index;
 
 //@property (strong, nonatomic) NSArray* imageNames;
-
-@property(strong,nonatomic) NSDictionary* imageDictionary;
+//@property(strong,nonatomic) NSDictionary* imageDictionary;
 
 @end
 

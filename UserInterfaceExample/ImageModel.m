@@ -10,13 +10,12 @@
 
 @interface ImageModel()
 @property (strong, nonatomic) NSArray* imageNames;
+@property(strong,nonatomic) NSDictionary* imageDictionary;
 @end
 
 
 @implementation ImageModel
-//{
-//    NSArray* _imageNames;
-//}
+
 
 @synthesize imageNames = _imageNames;
 @synthesize imageDictionary = _imageDictionary;
@@ -35,7 +34,7 @@
 
 -(NSArray*) imageNames{
     if(!_imageNames)
-        _imageNames = @[@"Bill",@"Eric",@"Jeff"];
+        _imageNames = @[@"Bill",@"Eric",@"Jeff",@"Mouse",@"Dog",@"Cat"];
     NSLog(@"imageNames");
     
     return _imageNames;
@@ -43,7 +42,7 @@
 
 -(NSDictionary*) imageDictionary{
     if(!_imageDictionary)
-        _imageDictionary = @{@"Bill":[UIImage imageNamed:@"Bill"],@"Eric":[UIImage imageNamed:@"Eric"],@"Jeff":[UIImage imageNamed:@"Jeff"]};
+        _imageDictionary = @{@"Bill":[UIImage imageNamed:@"Bill"],@"Eric":[UIImage imageNamed:@"Eric"],@"Jeff":[UIImage imageNamed:@"Jeff"],@"Mouse":[UIImage imageNamed:@"Mouse"],@"Dog":[UIImage imageNamed:@"Dog"],@"Cat":[UIImage imageNamed:@"Cat"]};
     
     [_imageDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
          
@@ -57,27 +56,24 @@
 
 -(UIImage*)getImageWithName:(NSString*)name{
     UIImage* image = nil;
-    image = [_imageDictionary objectForKey:name];
+    image = [self.imageDictionary objectForKey:name];
     
     return image;
 }
-
 
 -(UIImage*)getImageWithIndex:(NSInteger)index{
     UIImage* image = nil;
-    image = [_imageDictionary objectForKey:[self.imageNames objectAtIndex:index]];
+    image = [self.imageDictionary objectForKey:[self.imageNames objectAtIndex:index]];
     return image;
 }
--(NSInteger*)numberOfImages{
-    NSInteger* imageNum = nil;
-    imageNum = (NSInteger)self.imageNames.count;
-    
-    return imageNum;
+-(NSInteger)numberOfImages{
+
+    return self.imageNames.count;
 }
 -(NSString*)getImageNameForIndex:(NSInteger)index{
     NSString* name = nil;
     name = [self.imageNames objectAtIndex:index];
-    NSLog(@"name is %@",name);
+//    NSLog(@"name is %@",name);
     return name;
 }
 

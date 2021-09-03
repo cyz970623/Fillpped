@@ -26,7 +26,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.imageModel.imageDictionary.count
+            return self.imageModel.numberOfImages();
         }
         
         return 1
